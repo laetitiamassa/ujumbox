@@ -1,0 +1,39 @@
+<h1>Listing ujumbes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Theme</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Link</th>
+      <th>Kind</th>
+      <th>Private</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ujumbes.each do |ujumbe| %>
+      <tr>
+        <td><%= ujumbe.title %></td>
+        <td><%= ujumbe.theme %></td>
+        <td><%= ujumbe.date %></td>
+        <td><%= ujumbe.description %></td>
+        <td><%= ujumbe.link %></td>
+        <td><%= ujumbe.kind %></td>
+        <td><%= ujumbe.private %></td>
+        <td><%= link_to 'Show', ujumbe %></td>
+        <td><%= link_to 'Edit', edit_ujumbe_path(ujumbe) %></td>
+        <td><%= link_to 'Destroy', ujumbe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ujumbe', new_ujumbe_path %>

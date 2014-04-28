@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ujumbe.title %>
+</p>
+
+<p>
+  <strong>Theme:</strong>
+  <%= @ujumbe.theme %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @ujumbe.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ujumbe.description %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @ujumbe.link %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @ujumbe.kind %>
+</p>
+
+<p>
+  <strong>Private:</strong>
+  <%= @ujumbe.private %>
+</p>
+
+<%= link_to 'Edit', edit_ujumbe_path(@ujumbe) %> |
+<%= link_to 'Back', ujumbes_path %>
