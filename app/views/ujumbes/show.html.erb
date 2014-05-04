@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <h1><%= @ujumbe.title %>
       <span class="center-text">
-        <% if @ujumbe.user=current_user %>
+        <% if @ujumbe.user == current_user %>
         <%= link_to 'Editez votre proposition', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
       <% end %>
       </span></h1>
@@ -61,7 +61,7 @@
 <div class="thumbnail">
     <div class="caption">
       <p><b>Budget</b></p>
-<%= @ujumbe.budget %>
+<p><%= @ujumbe.budget %></p>
 <p><b>Source de financement</b></p>
 <%= simple_format(@ujumbe.funding) %>
 </div>
