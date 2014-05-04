@@ -9,12 +9,19 @@
 	<div class="col-md-10 profilename">
 		<h2><%= @user.name %>
 			<span class="center-text">
-				<% if @user=current_user %>
-				<%= link_to 'Editez votre profil', edit_user_path(current_user), :class => 'btn btn-default' %>
-			<% else %>
-				<p><%= @user.email %></p>
-			<% end %>
+				<!-- social network presence -->
+				<%= link_to 'Facebook', @user.facebook_url, :target => "_blank", :class => 'btn btn-default' if @user.facebook_url %>
+				<%= link_to 'Linkedin', @user.linkedin_url, :target => "_blank", :class => 'btn btn-default' if @user.linkedin_url %>
+				<%= link_to 'Twitter', @user.twitter_url, :target => "_blank", :class => 'btn btn-default' if @user.twitter_url %>
+				<%= link_to 'Website', @user.website_url, :target => "_blank", :class => 'btn btn-default' if @user.website_url %>
+
+				<% if current_user == @user %>
+					<%= link_to 'Editez votre profil', edit_user_path(current_user), :class => 'btn btn-primary' %>
+				<% else %>
+					<p><%= @user.email %></p>
+				<% end %>
 			</span>
+
 		<br><small><b><%= @user.title %></b> (<%= @user.party_short %>)</small></h2>
 	</div>
 

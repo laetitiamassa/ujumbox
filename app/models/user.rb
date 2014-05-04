@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :ujumbes
-  has_attached_file :image, :styles => { :medium => "400x400>", :thumb => "100x100>", :mini => "50x50>", :large => "600x600>" }
+  has_attached_file :image, :styles => { :medium => "400x400>", :thumb => "100x100>", :mini => "50x50>", :large => "600x600>" }, :default_url => "/assets/userpic_missing_:style.png"
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
 
-  has_attached_file :cover, :styles => { :medium => "300x300>", :thumb => "100x100>", :cover => "1814x489>" }
-  validates_attachment :cover, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+  has_attached_file :cover, :styles => { :medium => "300x300>", :thumb => "100x100>", :cover => "1814x489>" }, :default_url => "/assets/usercover_missing_:style.png"
+  validates_attachment :cover, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] } 
 
 
   ACTION_AREAS = ["police", "fiscalite", "securite_sociale", "affaires_etrangeres", "armee", "justice", "recherche_scientifique", "amenagement_territoire", "environnement", "logement", "agriculture", "eau_energie", "economie_emploi", "culture", "sport", "education", "creches", "jeunesse"]
