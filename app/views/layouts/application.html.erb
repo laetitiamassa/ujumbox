@@ -14,9 +14,13 @@
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
-       <div class="container">
-       <%= yield %>
-     </div>
+        <% if user_signed_in? %>
+          <div class="container">
+            <%= yield %>
+          </div>
+        <% else %>
+          <%= yield %>
+        <% end %>
     </main>
     <footer>
     <%= render 'layouts/footer' %>
