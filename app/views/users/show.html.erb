@@ -1,4 +1,101 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
-<%= link_to 'Edit account', edit_user_path %>
+
+<div class="cover">
+	<%= image_tag @user.cover.url(:cover) %>
+</div>
+
+<div class="page-header">
+	<div class="row">
+	
+	<div class="col-md-10 profilename">
+		<h2><%= @user.name %>
+			<span class="center-text">
+				<% if @user=current_user %>
+				<%= link_to 'Editez votre profil', edit_user_path(current_user), :class => 'btn btn-default' %>
+			<% else %>
+				<p><%= @user.email %></p>
+			<% end %>
+			</span>
+		<br><small><b><%= @user.title %></b> (<%= @user.party_short %>)</small></h2>
+	</div>
+
+	<div class="col-md-2 text-right">
+		<%= image_tag @user.image.url(:thumb), :class => "img-thumbnail profilepic" %>
+	</div>
+	
+
+</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<p class=" lead text-center"><b>Mon engagement</b></p>
+
+		<div class="thumbnail">
+		<div class="caption">
+<div class="glyphicon glyphicon-map-marker pull-right"><%= @user.residency %></div>
+<br>
+<br>
+		<p class="lead">Mon activité professionnelle</p>
+		<p><%= @user.profession %></p>
+		<br>
+		<p class="lead">Mon parcours politique</p>
+		<p><%= simple_format(@user.career) %></p>
+		<br>
+		<p class="lead">Mes réalisations passées</p>
+		<p><%= simple_format(@user.achievements) %></p>
+		<br>
+		
+		<p class="lead">Mes domaines d'action</p>
+			<p class="lead"><% if @user.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+		  <% if @user.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+		  <% if @user.theme_housing %><span class="label label-success">logement</span><% end %>
+		  <% if @user.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+		  <% if @user.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+		  <% if @user.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+		  <% if @user.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+		  <% if @user.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+		  <% if @user.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+		  <% if @user.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %></p>
+
+	</div>
+</div>
+
+	
+</div>
+
+
+
+	<div class="col-md-8">
+		<p class="lead text-center"><b>Mes propositions</b></p>
+
+			<%= render 'shortform' %>
+
+			<% @ujumbes.each do |ujumbe| %>
+				<div class="col-sm-6 col-md-6">
+			    <div class="thumbnail">
+			      <!-- <img data-src="holder.js/300x200" alt="..."> -->
+			      <div class="caption">
+			        <div class="title"><%= link_to truncate(ujumbe.title, :length => 20), ujumbe_path(ujumbe) %></div>
+			        
+			        <% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+      <% if ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+      <% if ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
+      <% if ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+      <% if ujumbe.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+      <% if ujumbe.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+      <% if ujumbe.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+      <% if ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+      <% if ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+      <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %>
+			        <p><%= ujumbe.description %></p>
+			        <p><a href="#" class="btn btn-primary" role="button">Voir</a> <a href="#" class="btn btn-default" role="button">Adhérer</a></p>
+			      </div>
+			    </div>
+			  </div>
+			<% end %>
+
+	</div>
+</div>
+
+
+

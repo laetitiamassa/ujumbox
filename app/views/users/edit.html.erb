@@ -1,0 +1,99 @@
+<div class="col-md-6 col-md-offset-3">
+<div class="page-header">
+	<h1>Editez votre profil</h1>
+	<%= link_to 'modifiez votre nom ou mot de passe', edit_user_registration_path %>
+</div>
+  
+    
+    	<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  	<div class="form-group">
+	    <%= f.label :image, "Votre photo de profil" %>
+	    <%= f.file_field :image, class: "form-control" %>
+	  </div>
+
+	  <div class="form-group">
+	    <%= f.label :cover, "Votre photo de couverture" %>
+	    <%= f.file_field :cover, class: "form-control" %>
+	  </div>
+
+	  <div class="form-group">
+      <%= f.label :residency, "Votre commune/région de résidence" %>
+      <%= f.text_field :residency, :autofocus => true, class: 'form-control' %>
+    </div>
+
+  	<div class="form-group">
+      <%= f.label :party, "Votre parti" %>
+      <%= f.text_field :party, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :party_short, "Votre parti, en abrégé" %>
+      <%= f.text_field :party_short, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :title, "Votre titre ou votre candidature" %>
+      <%= f.text_field :title, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :profession, "Votre activité professionnelle principale" %>
+      <%= f.text_field :profession, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :career, "Votre parcours politique et/ou associatif" %>
+      <%= f.text_area :career, rows: "7", class: 'form-control' %>
+    </div>
+
+    	<div class="form-group">
+      <%= f.label :achievements, "Vos principales réalisations" %>
+      <%= f.text_area :achievements, rows: "7", class: 'form-control' %>
+    </div>
+
+<div class="form-group">
+    <%= f.label :action_areas, "Vos principaux domaines d'action" %>
+    <ul class="list-group">
+		  <li class="list-group-item"><%= f.check_box :theme_education %> éducation, jeunesse</li>
+		  <li class="list-group-item"><%= f.check_box :theme_economy %> économie, emploi</li>
+		  <li class="list-group-item"><%= f.check_box :theme_housing %> logement</li>
+		  <li class="list-group-item"><%= f.check_box :theme_social %> sécurité sociale, fiscalité</li>
+		  <li class="list-group-item"><%= f.check_box :theme_culture %> culture, sport</li>
+		  <li class="list-group-item"><%= f.check_box :theme_environnement %> environnement, aménagement du territoire</li>
+		  <li class="list-group-item"><%= f.check_box :theme_ressources %> eau, énergie, agriculture</li>
+		  <li class="list-group-item"><%= f.check_box :theme_security %> police, armée, justice</li>
+		  <li class="list-group-item"><%= f.check_box :theme_scientific %> recherche scientifique</li>
+		  <li class="list-group-item"><%= f.check_box :theme_foreign %> affaires étrangères</li>
+		</ul>
+</div>
+
+ 
+
+
+
+
+  <div class="form-actions">
+    <%= f.submit "Modifiez votre profil", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
+
+
+<!-- Include Twitter Bootstrap and jQuery: -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+ 
+<!-- Include the plugin's CSS and JS: -->
+<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+ 
+<!-- Initialize the plugin: -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.multiselect').multiselect();
+  });
+
+</script>

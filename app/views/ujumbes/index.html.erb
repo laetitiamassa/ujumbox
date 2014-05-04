@@ -1,39 +1,43 @@
-<h1>Listing ujumbes</h1>
+<h1 class="text-center">Propositions des candidats</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Theme</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Link</th>
-      <th>Kind</th>
-      <th>Private</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h3 class="text-center">Propositions dans vos thèmes | Propositions de vos candidats</h3>
 
-  <tbody>
-    <% @ujumbes.each do |ujumbe| %>
-      <tr>
-        <td><%= ujumbe.title %></td>
-        <td><%= ujumbe.theme %></td>
-        <td><%= ujumbe.date %></td>
-        <td><%= ujumbe.description %></td>
-        <td><%= ujumbe.link %></td>
-        <td><%= ujumbe.kind %></td>
-        <td><%= ujumbe.private %></td>
-        <td><%= link_to 'Show', ujumbe %></td>
-        <td><%= link_to 'Edit', edit_ujumbe_path(ujumbe) %></td>
-        <td><%= link_to 'Destroy', ujumbe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'shortform' %>
 
-<br>
+<% @ujumbes.each do |ujumbe| %>
+  
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <!-- <img data-src="holder.js/300x200" alt="..."> -->
+      <div class="caption card">
+        <div class="title"><%= link_to truncate(ujumbe.title, :length => 60), ujumbe_path(ujumbe) %></div>
+        
+<!-- theme ! -->
+      <p><% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+      <% if ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+      <% if ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
+      <% if ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+      <% if ujumbe.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+      <% if ujumbe.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+      <% if ujumbe.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+      <% if ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+      <% if ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+      <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %></p>
+  
+      <div class="row card-cta">
+        <div class="col-sm-6 col-md-9">
+        <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-primary" %>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <%= link_to image_tag(@user.image.url(:mini), :class => "img-circle"), user_path(ujumbe.user) %>
+      </div>
+    </div>
+        
 
-<%= link_to 'New Ujumbe', new_ujumbe_path %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+

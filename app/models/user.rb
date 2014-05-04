@@ -3,4 +3,20 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :ujumbes
+  has_attached_file :image, :styles => { :medium => "400x400>", :thumb => "100x100>", :mini => "50x50>", :large => "600x600>" }
+  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+
+  has_attached_file :cover, :styles => { :medium => "300x300>", :thumb => "100x100>", :cover => "1814x489>" }
+  validates_attachment :cover, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+
+
+  ACTION_AREAS = ["police", "fiscalite", "securite_sociale", "affaires_etrangeres", "armee", "justice", "recherche_scientifique", "amenagement_territoire", "environnement", "logement", "agriculture", "eau_energie", "economie_emploi", "culture", "sport", "education", "creches", "jeunesse"]
+
+  def self.action_areas
+    ACTION_AREAS.map do |action_area|
+      [I18n.t("action_areas.#{action_area}"), action_area]
+    end
+  end
 end

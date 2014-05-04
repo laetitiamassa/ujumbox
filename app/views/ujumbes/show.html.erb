@@ -1,39 +1,70 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <div class="row">
+    <div class="col-md-8">
+      <h1><%= @ujumbe.title %>
+      <span class="center-text">
+        <% if @ujumbe.user=current_user %>
+        <%= link_to 'Editez votre proposition', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
+      <% end %>
+      </span></h1>
+    </div>
+    <div class="col-md-4">
+      <%= link_to image_tag(@ujumbe.user.image.url(:thumb), :class => "img-circle profilepic"), user_path(@ujumbe.user) %>
+    </div>
+  </div>
+</div>
+<div class="text-right">
+      <% if @ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+      <% if @ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+      <% if @ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
+      <% if @ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+      <% if @ujumbe.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+      <% if @ujumbe.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+      <% if @ujumbe.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+      <% if @ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+      <% if @ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+      <% if @ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @ujumbe.title %>
-</p>
+<div class="col-md-10 col-md-offset-1">
 
-<p>
-  <strong>Theme:</strong>
-  <%= @ujumbe.theme %>
-</p>
+<% if @ujumbe.what %>
+  <p class="lead">Ma proposition dans le détail :</p>
+<div class="thumbnail">
+    <div class="caption">
+<%= simple_format(@ujumbe.what) %>
+</div>
+</div>
+<% end %>
 
-<p>
-  <strong>Date:</strong>
-  <%= @ujumbe.date %>
-</p>
+<% if @ujumbe.why %>
+<p class="lead">Pourquoi cette proposition :</p>
+<div class="thumbnail">
+    <div class="caption">
+<%= simple_format(@ujumbe.why) %>
+</div>
+</div>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ujumbe.description %>
-</p>
+<% if @ujumbe.how %>
+<p class="lead">La manière dont je compte mettre en oeuvre cette proposition :</p>
+<div class="thumbnail">
+    <div class="caption">
+<%= simple_format(@ujumbe.how) %>
+</div>
+</div>
+<% end %>
 
-<p>
-  <strong>Link:</strong>
-  <%= @ujumbe.link %>
-</p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @ujumbe.kind %>
-</p>
-
-<p>
-  <strong>Private:</strong>
-  <%= @ujumbe.private %>
-</p>
-
-<%= link_to 'Edit', edit_ujumbe_path(@ujumbe) %> |
-<%= link_to 'Back', ujumbes_path %>
+<% if @ujumbe.budget %>
+<p class="lead">Le budget nécessaire à la réalisation de cette proposition :</p>
+<div class="thumbnail">
+    <div class="caption">
+      <p><b>Budget</b></p>
+<%= @ujumbe.budget %>
+<p><b>Source de financement</b></p>
+<%= simple_format(@ujumbe.funding) %>
+</div>
+</div>
+<% end %>
+</div>

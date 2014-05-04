@@ -1,1 +1,29 @@
-<h3>Home</h3>
+
+	<div class="namefront text-center"><b>ujumbox</b></div>
+<div class="baseline text-center">L'action politique peut enfin être suivie. <b>A l'abri du brouhaha.</b></div>
+<br>
+<br>
+<br>
+
+<div class="page-header">
+<h3>Candidats présents</h3>
+</div>
+
+<% @users.each do |user| %>
+<div class="col-md-3">
+
+	<div class="lead text-center">		    
+	<%= link_to image_tag(@user.image.url(:large), :class => "img-thumbnail"), user_path(user) %>
+	<br><%= link_to user.name, user_path(user) %> (<small><i><%= user.party_short %>)</i></small></div>
+</div>
+
+
+<% end %>
+<div class="col-md-3">
+<div class="lead text-center">		    
+	<%= image_tag @user.image.url(:large), :class => "img-thumbnail" %>
+	<br>Proposer un candidat</div>
+</div>
+</div>
+
+

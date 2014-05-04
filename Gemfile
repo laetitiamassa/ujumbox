@@ -11,6 +11,10 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
+gem 'acts_as_votable', '~> 0.9.0'
+gem 'bootstrap-multiselect-rails'
+gem "paperclip", "~> 4.1"
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19]
@@ -18,6 +22,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
 group :production do
   gem 'thin'
 end

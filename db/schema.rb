@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428171658) do
+ActiveRecord::Schema.define(version: 20140504105006) do
 
   create_table "ujumbes", force: true do |t|
     t.string   "title"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 20140428171658) do
     t.boolean  "private"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.text     "what"
+    t.text     "why"
+    t.text     "how"
+    t.string   "budget"
+    t.string   "funding"
+    t.boolean  "theme_ressources"
+    t.boolean  "theme_education"
+    t.boolean  "theme_housing"
+    t.boolean  "theme_environnement"
+    t.boolean  "theme_culture"
+    t.boolean  "theme_economy"
+    t.boolean  "theme_social"
+    t.boolean  "theme_security"
+    t.boolean  "theme_scientific"
+    t.boolean  "theme_foreign"
   end
 
   create_table "users", force: true do |t|
@@ -43,9 +59,53 @@ ActiveRecord::Schema.define(version: 20140428171658) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.text     "career"
+    t.string   "title"
+    t.text     "achievements"
+    t.string   "profession"
+    t.string   "party"
+    t.string   "party_short"
+    t.datetime "birth_date"
+    t.string   "birth_place"
+    t.string   "residency"
+    t.string   "theme"
+    t.text     "action_area"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.boolean  "theme_ressources"
+    t.boolean  "theme_culture"
+    t.boolean  "theme_education"
+    t.boolean  "theme_social"
+    t.boolean  "theme_security"
+    t.boolean  "theme_housing"
+    t.boolean  "theme_environnement"
+    t.boolean  "theme_scientific"
+    t.boolean  "theme_foreign"
+    t.boolean  "theme_economy"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votes", force: true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
 end

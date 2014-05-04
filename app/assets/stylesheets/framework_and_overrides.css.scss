@@ -6,6 +6,8 @@
 
 // import the CSS framework
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Pompiere);
+
 
 // make all images responsive by default
 img {
@@ -13,9 +15,17 @@ img {
   margin: 0 auto;
   }
 // override for the 'Home' navigation link
+
 .navbar-brand {
-  font-size: inherit;
+  font-size: 4em;
+  font-family: 'Pompiere', cursive;
+  padding-top: 20px;
   }
+
+.navbar {
+  background-color: white;
+}
+
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -40,7 +50,7 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  background-color: #C0BFA9;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -84,4 +94,40 @@ section {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.cover {
+  margin-top: 10px;
+  margin-bottom: -60px;
+}
+
+.profilepic {
+  margin-right: 20px;
+}
+
+.profilename {
+  padding-top: 10px;
+}
+
+.baseline {
+  font-size: 7em;
+  font-family: 'Pompiere', cursive;
+  line-height: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+} 
+
+.namefront {
+  font-size: 14em;
+  font-family: 'Pompiere', cursive;
+  line-height: 100px;
+  padding-top: 100px;
+}  
+
+.card {
+  min-height: 165px;
 }

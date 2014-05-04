@@ -1,0 +1,22 @@
+<div class="col-sm-6 col-md-6">
+    <div class="thumbnail alert-info">
+      <!-- <img data-src="holder.js/300x200" alt="..."> -->
+      <div class="caption alert-info">
+
+        <p class="lead"><%= link_to 'Une nouvelle solution ?', new_ujumbe_path %></p>
+
+        <%= simple_form_for(@ujumbe) do |f| %>
+        <%= f.error_notification %>
+          <div class="form-group">
+              <%= f.text_field :title, :placeholder => "Faites une nouvelle proposition", class: 'form-control input-lg' %>
+          </div>
+
+
+          <div class="form-actions">
+            <%= f.submit "Publiez votre proposition", :class => "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
