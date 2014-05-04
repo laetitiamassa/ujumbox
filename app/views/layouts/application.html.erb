@@ -12,19 +12,25 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
+ 
         <% if user_signed_in? %>
+         <%= render 'layouts/messages' %>
           <div class="container">
             <%= yield %>
           </div>
+        
         <% else %>
+           
+          <%= render 'layouts/messages' %>
           <%= yield %>
+
+          <footer>
+            <%= render 'layouts/footer' %>
+          </footer>
+            
         <% end %>
-    </main>
-    <footer>
-    <%= render 'layouts/footer' %>
-  </footer>
+ 
+    
 
 <!-- facebook like -->
   <div id="fb-root"></div>
