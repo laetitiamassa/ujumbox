@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'acts_as_votable', '~> 0.9.0'
 gem 'bootstrap-multiselect-rails'
 gem "paperclip", "~> 4.1"
+gem 'aws-sdk', '~> 1.20.0'
 
 group :development, :test do
   gem 'better_errors'
