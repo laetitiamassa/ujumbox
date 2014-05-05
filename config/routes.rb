@@ -10,5 +10,6 @@ Ujumbox::Application.routes.draw do
       get :unfollow
     end
   end
+  get "about" => "about#show"
 
 end

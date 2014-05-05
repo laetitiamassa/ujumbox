@@ -1,23 +1,28 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
-	<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name if @user.present? %> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-          	<li><%= link_to 'Consultez votre profil', user_path(current_user) %></li>
-            <li><%= link_to 'Editez votre profil', edit_user_path(current_user) %></li>
-            <li role="presentation" class="divider"></li>
-            <% unless current_user.is_politic %><li><%= link_to 'Devenir utilisateur politique', "mailto:contact@ujumbox.com" %></li><% end %>
-            <li><%= link_to 'Votre compte', edit_user_registration_path %></li>
-          </ul>
-  </li>
+	
   
   <li><%= link_to 'Propositions', ujumbes_path %></li>
   <% unless current_user.is_politic %><li><%= link_to 'Vous êtes candidat/mandataire ?', "mailto:contact@ujumbox.com" %></li><% end %>
-  <li><%= link_to 'Déconnexion', destroy_user_session_path, :method=>'delete' %></li>
+  <li><%= link_to 'A propos', about_path %></li>
+
+  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name if @user.present? %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Consultez votre profil', user_path(current_user) %></li>
+            <li><%= link_to 'Editez votre profil', edit_user_path(current_user) %></li>
+            <li role="presentation" class="divider"></li>
+            <% unless current_user.is_politic %><li><%= link_to 'Devenir utilisateur politique', "mailto:contact@ujumbox.com" %></li><% end %>
+            <li><%= link_to 'A propos', about_path %></li>
+            <li><%= link_to 'Votre compte', edit_user_registration_path %></li>
+            <li role="presentation" class="divider"></li>
+              <li><%= link_to 'Déconnexion', destroy_user_session_path, :method=>'delete' %></li>
+          </ul>
+  </li>
+
 <% else %>
+   <li><%= link_to 'A propos', about_path %></li>
   <li><%= link_to 'Connexion', new_user_session_path %></li>
   <li><%= link_to 'Inscription', new_user_registration_path %></li>
 <% end %>
-<% if user_signed_in? %>
 
-<% end %>

@@ -14,14 +14,17 @@
     </header>
  
         <% if user_signed_in? %>
+       <div class="container">
          <%= render 'layouts/messages' %>
+       </div>
           <div class="container">
             <%= yield %>
           </div>
         
         <% else %>
-           
+           <div class="container">
           <%= render 'layouts/messages' %>
+        </div>
           <%= yield %>
 
           <footer>
