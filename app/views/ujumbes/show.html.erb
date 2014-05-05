@@ -1,6 +1,6 @@
 <div class="page-header">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
       <h1><%= @ujumbe.title %>
       <span class="center-text">
         <% if @ujumbe.user == current_user %>
@@ -8,7 +8,7 @@
       <% end %>
       </span></h1>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
       <%= link_to image_tag(@ujumbe.user.image.url(:thumb), :class => "img-circle profilepic"), user_path(@ujumbe.user) %>
     </div>
   </div>

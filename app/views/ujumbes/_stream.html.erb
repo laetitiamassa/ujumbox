@@ -1,4 +1,4 @@
-<h1 class="text-center">Propositions des candidats / mandataires</h1>
+<h1 class="text-center">Propositions des candidats et mandataires</h1>
 
 <!-- pour plus tard 
 <h3 class="text-center">Propositions dans vos thèmes | Propositions de vos candidats</h3>
@@ -12,7 +12,7 @@
     <div class="thumbnail">
       <!-- <img data-src="holder.js/300x200" alt="..."> -->
       <div class="caption card">
-        <div class="title"><%= link_to truncate(ujumbe.title, :length => 60), ujumbe_path(ujumbe) %></div>
+        <div class="title"><%= link_to truncate(ujumbe.title, :length => 48), ujumbe_path(ujumbe) %></div>
         
 <!-- theme ! -->
       <p><% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
@@ -28,7 +28,7 @@
   
       <div class="row card-cta">
         <div class="col-sm-6 col-md-9">
-        <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-primary" %>
+        <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-default" %>
       </div>
       <div class="col-sm-6 col-md-3">
         <%= link_to image_tag(ujumbe.user.image.url(:mini), :class => "img-circle"), user_path(ujumbe.user) %>

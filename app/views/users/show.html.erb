@@ -81,10 +81,10 @@
 				<div class="col-sm-6 col-md-6">
 			    <div class="thumbnail">
 			      <!-- <img data-src="holder.js/300x200" alt="..."> -->
-			      <div class="caption">
+			      <div class="caption card">
 			        <div class="title"><%= link_to truncate(ujumbe.title, :length => 20), ujumbe_path(ujumbe) %></div>
 			        
-			        <% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+			<p><% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
       <% if ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
       <% if ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
       <% if ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
@@ -93,9 +93,8 @@
       <% if ujumbe.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
       <% if ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
       <% if ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
-      <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %>
-			        <p><%= ujumbe.description %></p>
-			        <p><a href="#" class="btn btn-primary" role="button">Voir</a> <a href="#" class="btn btn-default" role="button">Adhérer</a></p>
+      <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %></p>
+			        <p><%= link_to 'Voir', ujumbe_path(ujumbe), :class => 'btn btn-default' %></p>
 			      </div>
 			    </div>
 			  </div>
