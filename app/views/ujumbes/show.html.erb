@@ -3,9 +3,11 @@
     <div class="col-md-10">
       <h1><%= @ujumbe.title %>
       <span class="center-text">
-        <% if @ujumbe.user == current_user %>
-        <%= link_to 'Editez votre proposition', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
-      <% end %>
+        <% if current_user == @ujumbe.user %>
+          <%= link_to 'Editez votre proposition', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
+        <% else %>
+          <%= link_to 'Suivre ce mandataire', follow_user_path(@ujumbe.user), :class => 'btn btn-success' if @ujumbe.user.is_politic %>
+        <% end %>
       </span></h1>
     </div>
     <div class="col-md-2">

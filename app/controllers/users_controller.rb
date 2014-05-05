@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     @ujumbe = current_user.ujumbes.build if current_user
   end
 
+  def follow
+    @user = User.find(params[:id])
+    current_user.follow(@user)
+    redirect_to :back
+  end
+
   def edit
     @user = current_user
     @action_areas = User.action_areas
@@ -28,7 +34,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :name, :title, :career, :action_area, :achievements, :profession, :party, :party_short, :birth_date, :birth_place, :residency, :image, :cover, 
                                  :theme_ressources, :theme_education, :theme_housing, :theme_environnement, :theme_culture, :theme_economy, :theme_social, :theme_security, :theme_scientific, :theme_foreign,
-                                 :facebook_url, :linkedin_url, :twitter_url, :website_url)
+                                 :facebook_url, :linkedin_url, :twitter_url, :website_url,
+                                 :is_politic)
   end
 
   def markdown(content)

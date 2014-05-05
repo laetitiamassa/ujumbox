@@ -18,7 +18,7 @@
 				<% if current_user == @user %>
 					<%= link_to 'Editez votre profil', edit_user_path(current_user), :class => 'btn btn-primary' %>
 				<% else %>
-					<%= link_to 'Suivre ce mandataire', "mailto:#{@user.email}", :class => 'btn btn-primary' if @user.is_politic %>
+					<%= link_to 'Suivre ce mandataire', follow_user_path(@user), :class => 'btn btn-success' if @user.is_politic %>
 				<% end %>
 			</span>
 			<% if @user.is_politic %>
@@ -84,6 +84,8 @@
 				<%= render 'shortform' %>
 			<% end %>
 
+
+			<% if @ujumbes.any? %>
 			<% @ujumbes.each do |ujumbe| %>
 				<div class="col-sm-6 col-md-6">
 			    <div class="thumbnail">
@@ -106,6 +108,31 @@
 			    </div>
 			  </div>
 			<% end %>
+
+			<% else %>
+				<% unless @user == current_user %>
+				<p class="lead text-center"><%= @user.name %> n'a pas encore publié de proposition</p>
+				<% end %>
+				<% end %>
+			</div>
+
+		<div class="col-md-8">
+			<p class="lead text-center"><b>Candidats et mandataires suivis</b></p>
+				<% if @user.all_following.any? %>
+					<% @user.all_following.each do |followed| %>
+					<div class="col-sm-3 col-md-3">
+						<div class="thumbnail">
+							<%= link_to image_tag(followed.image.url(:medium), :class => "img-thumbnail profilepic"), user_path(followed) %>
+							<div class="text-center"><%= followed.name %></div>
+						</div>
+					</div>
+
+						
+					<% end %>
+				<% else %>
+					<p class="lead text-center"><%= @user.name %> ne suit pas encore de candidat ou mandataire</p>
+				<% end %>
+			</div>
 
 	</div>
 </div>
@@ -141,12 +168,22 @@
 
 	<div class="col-md-8">
 		<p class=" lead text-center"><b>Candidats et mandataires suivis</b></p>
-		<div class="thumbnail">
-			<div class="caption">
-				politiciens suivis (sauf si resté secret)
-				s'il n'y a personne : "@user.name ne suit pas encore de candidat ou mandataire"
-			</div>
-		</div>
+				<% if @user.all_following.any? %>
+				<% @user.all_following.each do |followed| %>
+				<div class="col-sm-3 col-md-3">
+					<div class="thumbnail">
+						<%= link_to image_tag(followed.image.url(:medium), :class => "img-thumbnail profilepic"), user_path(followed) %>
+						<div class="text-center"><%= followed.name %></div>
+					</div>
+				</div>
+
+					
+				<% end %>
+				
+				<% else %>
+				<p class="lead text-center"><%= @user.name %> ne suit pas encore de candidat ou mandataire</p>
+				<% end %>
+		
 	</div>
 
 

@@ -1,11 +1,18 @@
-<h1 class="page-header">Propositions des candidats et mandataires <%= link_to 'Devenir utilisateur politique', "mailto:contact@ujumbox.com", :class => "btn btn-success pull-right" %></h1>
+<h1 class="page-header">Propositions des candidats et mandataires <%= link_to 'Devenir utilisateur politique', "mailto:contact@ujumbox.com", :class => "btn btn-success pull-right" unless current_user.is_politic %></h1>
 
 <!-- pour plus tard 
 <h3 class="text-center">Propositions dans vos thèmes | Propositions de vos candidats</h3>
 -->
+
+<% unless @ujumbes.any? %>
+  <p class"text-center lead">Aucun candidat ou mandataire n'a encore pulbié de proposition</p>
+<% end %>
+
 <% if current_user.is_politic %>
 <%= render 'shortform' %>
 <% end %>
+
+
 
 <% @ujumbes.each do |ujumbe| %>
   
