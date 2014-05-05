@@ -18,11 +18,15 @@
 				<% if current_user == @user %>
 					<%= link_to 'Editez votre profil', edit_user_path(current_user), :class => 'btn btn-primary' %>
 				<% else %>
-					<%= link_to 'Suivre ce mandataire', "mailto:#{@user.email}", :class => 'btn btn-primary' %>
+					<%= link_to 'Suivre ce mandataire', "mailto:#{@user.email}", :class => 'btn btn-primary' if @user.is_politic %>
 				<% end %>
 			</span>
-
-		<br><small><b><%= @user.title %></b> <% if @user.party_short.present? %>(<%= @user.party_short %>)<% end %></small></h2>
+			<% if @user.is_politic %>
+				<br><small><b><%= @user.title %></b> <% if @user.party_short.present? %>(<%= @user.party_short %>)<% end %></small>
+			<% else %>
+				<br><small><b><%= @user.profession %></b></small>
+			<% end %>
+		</h2>
 	</div>
 
 	<div class="col-md-2 text-right">
@@ -33,6 +37,8 @@
 </div>
 </div>
 
+<!-- View if the profile is politician -->
+<% if @user.is_politic %>
 <div class="row">
 	<div class="col-md-4">
 		<p class=" lead text-center"><b>Mon engagement</b></p>
@@ -74,8 +80,9 @@
 
 	<div class="col-md-8">
 		<p class="lead text-center"><b>Mes propositions</b></p>
-
-			<%= render 'shortform' %>
+			<% if @user == current_user %>
+				<%= render 'shortform' %>
+			<% end %>
 
 			<% @ujumbes.each do |ujumbe| %>
 				<div class="col-sm-6 col-md-6">
@@ -94,7 +101,7 @@
       <% if ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
       <% if ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
       <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %></p>
-			        <p><%= link_to 'Voir', ujumbe_path(ujumbe), :class => 'btn btn-default' %></p>
+			        <p><%= link_to 'Voir', ujumbe_path(ujumbe), :class => 'btn btn-primary' %></p>
 			      </div>
 			    </div>
 			  </div>
@@ -102,6 +109,51 @@
 
 	</div>
 </div>
+
+<% else %>
+<!-- View if the profile is civil -->
+
+<div class="row">
+	<div class="col-md-4">
+		<p class=" lead text-center"><b>Centres d'intérêt</b></p>
+
+		<div class="thumbnail">
+			<div class="caption">
+				<% if @user.residency.present? %>
+					<div class="glyphicon glyphicon-map-marker pull-right"><%= @user.residency %></div>
+				<% end %>
+					<br>
+					<br>
+						
+				<p class="lead"><% if @user.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+			  <% if @user.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+			  <% if @user.theme_housing %><span class="label label-success">logement</span><% end %>
+			  <% if @user.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+			  <% if @user.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+			  <% if @user.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+			  <% if @user.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+			  <% if @user.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+			  <% if @user.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+			  <% if @user.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-8">
+		<p class=" lead text-center"><b>Candidats et mandataires suivis</b></p>
+		<div class="thumbnail">
+			<div class="caption">
+				politiciens suivis (sauf si resté secret)
+				s'il n'y a personne : "@user.name ne suit pas encore de candidat ou mandataire"
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<% end %>
 
 
 

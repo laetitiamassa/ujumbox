@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504173454) do
+ActiveRecord::Schema.define(version: 20140505074839) do
 
   create_table "ujumbes", force: true do |t|
     t.string   "title"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20140504173454) do
     t.string   "linkedin_url"
     t.string   "twitter_url"
     t.string   "website_url"
+    t.boolean  "is_politic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,10 +1,11 @@
-<h1 class="text-center">Propositions des candidats et mandataires</h1>
+<h1 class="page-header">Propositions des candidats et mandataires <%= link_to 'Devenir utilisateur politique', "mailto:contact@ujumbox.com", :class => "btn btn-success pull-right" %></h1>
 
 <!-- pour plus tard 
 <h3 class="text-center">Propositions dans vos thèmes | Propositions de vos candidats</h3>
 -->
-
+<% if current_user.is_politic %>
 <%= render 'shortform' %>
+<% end %>
 
 <% @ujumbes.each do |ujumbe| %>
   
@@ -28,7 +29,7 @@
   
       <div class="row card-cta">
         <div class="col-sm-6 col-md-9">
-        <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-default" %>
+        <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-primary" %>
       </div>
       <div class="col-sm-6 col-md-3">
         <%= link_to image_tag(ujumbe.user.image.url(:mini), :class => "img-circle"), user_path(ujumbe.user) %>
