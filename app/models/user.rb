@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 Paperclip.options[:command_path] = 'C:\RailsInstaller\ImageMagick'
   has_attached_file :image, 
                     :styles => { :medium => "400x400>", :thumb => "100x100>", :mini => "50x50>", :large => "600x600>" }, 
-                    :default_url => "/assets/userpic_missing_:style.png", 
+                    #:default_url => "/assets/userpic_missing_:style.png",
                     :url  => "/users/images/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/users/images/:id/:style/:basename.:extension"
   
@@ -18,7 +18,7 @@ Paperclip.options[:command_path] = 'C:\RailsInstaller\ImageMagick'
 
   has_attached_file :cover, 
                     :styles => { :medium => "300x300>", :thumb => "100x100>", :cover => "1814x489>" }, 
-                    :default_url => "/assets/usercover_missing_:style.png", 
+                    #:default_url => "/assets/usercover_missing_:style.png", 
                     :url  => "/users/images/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/users/images/:id/:style/:basename.:extension"
   
