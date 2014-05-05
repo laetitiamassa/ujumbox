@@ -6,15 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :ujumbes
 
-Paperclip.options[:command_path] = 'C:\RailsInstaller\ImageMagick'
   has_attached_file :image, 
                     :styles => { :medium => "400x400>", :thumb => "100x100>", :mini => "50x50>", :large => "600x600>" }, 
-                    :storage => :s3,
-                    :bucket => '****',
-                    :s3_credentials => S3_CREDENTIALS,
-                    :s3_host_name => 's3-us-west-2.amazonaws.com'
-                        :url => "/:image/:id/:style/:basename.:extension",
-                        :path => ":image/:id/:style/:basename.:extension"
+                    :url => "/:image/:id/:style/:basename.:extension",
+                    :path => ":image/:id/:style/:basename.:extension"
   
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
   validates_attachment_size :image, :less_than => 5.megabytes
