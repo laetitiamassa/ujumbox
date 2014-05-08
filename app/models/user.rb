@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :ujumbes
 
   has_attached_file :image, 
-                    :styles => { :medium => "400x400>", :thumb => "100x100>", :mini => "50x50>", :large => "600x600>" }, 
+                    :styles => { :medium => "400x400#", :thumb => "100x100#", :mini => "50x50#", :large => "600x600#" }, 
                     :default_url => "userpic_missing_:style.png"
                     
   
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates_attachment_size :image, :less_than => 5.megabytes
 
   has_attached_file :cover, 
-                    :styles => { :medium => "300x300>", :thumb => "100x100>", :cover => "1814x489>" }, 
+                    :styles => { :medium => "300x300#", :thumb => "100x100#", :cover => "1814x489#" }, 
                     :default_url => "usercover_missing_:style.png" 
                     
   

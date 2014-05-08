@@ -11,5 +11,6 @@ Ujumbox::Application.routes.draw do
     end
   end
   get "about" => "about#show"
+  get "rosemefalessi" => "users#show", defaults: { id: "10" }
 
 end
