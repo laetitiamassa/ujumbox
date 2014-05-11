@@ -169,16 +169,16 @@
 	<div class="col-md-8">
 		<p class=" lead text-center"><b>Candidats et mandataires suivis</b></p>
 				<% if @user.all_following.any? %>
-					<% @user.following_by_type('User').each do |followed| %>
-					<div class="col-sm-3 col-md-3">
-						<div class="thumbnail">
-							<%= link_to image_tag(followed.image.url(:medium), :class => "img-thumbnail profilepic"), user_path(followed) %>
-							<div class="text-center"><%= followed.name %></div>
-						</div>
+				<% @user.follows_by_type('User').each do |followed| %>
+				<div class="col-sm-3 col-md-3">
+					<div class="thumbnail">
+						<%= link_to image_tag(followed.image.url(:medium), :class => "img-thumbnail profilepic"), user_path(followed) %>
+						<div class="text-center"><%= followed.name %></div>
 					</div>
+				</div>
 
-						
-					<% end %>
+					
+				<% end %>
 				
 				<% else %>
 				<p class="lead text-center"><%= @user.name %> ne suit pas encore de candidat ou mandataire</p>
