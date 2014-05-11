@@ -17,6 +17,18 @@ class UjumbesController < ApplicationController
     @user = current_user
   end
 
+  def follow
+    @ujumbe = Ujumbe.find(params[:id])
+    current_user.follow(@ujumbe)
+    redirect_to :back
+  end
+
+  def unfollow
+    @ujumbe = Ujumbe.find(params[:id])
+    current_user.stop_following(@ujumbe)
+    redirect_to :back
+  end
+
   # GET /ujumbes/new
   def new
     @ujumbe = current_user.ujumbes.build

@@ -10,6 +10,14 @@ Ujumbox::Application.routes.draw do
       get :unfollow
     end
   end
+
+  resources :ujumbes do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
+
   get "about" => "about#show"
   get "rosemefalessi" => "users#show", defaults: { id: "10" }
 

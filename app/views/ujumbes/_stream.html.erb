@@ -37,7 +37,17 @@
       <div class="row card-cta">
         <div class="col-sm-6 col-md-9">
         <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-primary" %>
+        <% if current_user.following?(ujumbe) %>
+          <%= link_to 'lacher', unfollow_ujumbe_path(ujumbe), :class => 'btn btn-success' %>
+      <% else %>
+      <%= link_to 'Suivre', follow_ujumbe_path(ujumbe), :class => 'btn btn-success' %>
+    
+      <% end %>
       </div>
+      
+
+
+
       <div class="col-sm-6 col-md-3">
         <%= link_to image_tag(ujumbe.user.image.url(:mini), :class => "img-circle"), user_path(ujumbe.user) %>
       </div>
