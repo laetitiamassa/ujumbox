@@ -1,0 +1,23 @@
+<% if @user.following_users.any? %>
+			
+					<% @user.following_users.each do |user| %>
+					
+						<div class="col-sm-3 col-md-3">
+							<div class="thumbnail">
+								<%= link_to image_tag(user.image.url(:medium)), :class => "img-thumbnail profilepic" %>
+								<div class="text-center"><b><%= link_to user.name, user_path(user) %></b></div>
+
+								<div class="text-center">
+			        	<% if current_user.following?(user) %>
+          			<%= link_to 'Ne plus suivre', unfollow_user_path(user), :class => 'btn btn-default btn-block' %>
+      				<% else %>
+      					<%= link_to 'Suivre', follow_user_path(user), :class => 'btn btn-success btn-block' %>
+      <% end %></div>
+							</div>
+						</div>
+			
+					<% end %>
+				
+				<% else %>
+					<p class="lead text-center"><%= @user.name %> ne suit pas encore de candidat ou mandataire</p>
+				<% end %>

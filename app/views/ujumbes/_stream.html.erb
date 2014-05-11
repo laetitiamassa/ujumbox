@@ -20,10 +20,10 @@
     <div class="thumbnail">
       <!-- <img data-src="holder.js/300x200" alt="..."> -->
       <div class="caption card">
-        <div class="title"><%= link_to truncate(ujumbe.title, :length => 48), ujumbe_path(ujumbe) %></div>
+        
         
 <!-- theme ! -->
-      <p><% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+      <p class="text-right"><% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
       <% if ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
       <% if ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
       <% if ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
@@ -33,12 +33,16 @@
       <% if ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
       <% if ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
       <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %></p>
+
+      <div class="title">
+          <%= link_to truncate(ujumbe.title, :length => 48), ujumbe_path(ujumbe) %>
+        </div>
   
       <div class="row card-cta">
         <div class="col-sm-6 col-md-9">
-        <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-primary" %>
+        
         <% if current_user.following?(ujumbe) %>
-          <%= link_to 'Ne plus suivre', unfollow_ujumbe_path(ujumbe), :class => 'btn btn-danger' %>
+          <%= link_to 'Ne plus suivre', unfollow_ujumbe_path(ujumbe), :class => 'btn btn-default' %>
       <% else %>
       <%= link_to 'Suivre', follow_ujumbe_path(ujumbe), :class => 'btn btn-success' %>
     

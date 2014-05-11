@@ -1,0 +1,71 @@
+<div class="row">
+		
+<!-- LEFT -->
+		<div class="col-md-4">
+			<p class=" lead text-center"><b>Mon engagement</b></p>
+
+			<div class="thumbnail">
+				<div class="caption">
+					<% if @user.residency.present? %>
+						<div class="glyphicon glyphicon-map-marker pull-right"><%= @user.residency %></div>
+					<% end %>
+					<br>
+					<br>
+		
+					<p class="lead">Mon activité professionnelle</p>
+					<p><%= @user.profession %></p>
+					<br>
+		
+					<p class="lead">Mon parcours politique</p>
+					<p><%= simple_format(@user.career) %></p>
+					<br>
+
+					<p class="lead">Mes réalisations passées</p>
+					<p><%= simple_format(@user.achievements) %></p>
+					<br>
+		
+					<p class="lead">Mes domaines d'action</p>
+						<p class="lead">
+						<%= render 'themesusers' %>
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+<!-- RIGHT -->
+		<div class="col-md-8">
+			<div class="row">
+			<p class="lead text-center"><b>Mes propositions</b></p>
+			
+			<% if @user == current_user %>
+				<%= render 'shortform' %>
+			<% end %>
+
+			<%= render 'ujumbe' %>
+
+		</div>
+	
+
+			
+
+
+<!-- FOLLOWED USERS -->
+<div class="row">
+				<p class="lead text-center"><b>Candidats et mandataires suivis</b></p>
+				
+				<%= render 'followedusers' %>
+			</div>
+
+	<!-- FOLLOWED UJUMBES -->
+	<div class="row">
+	
+				<p class="lead text-center"><b>Propositions suivies</b></p>
+		
+				<%= render 'followedujumbe' %>
+			</div>
+
+		</div>
+
+</div>
+

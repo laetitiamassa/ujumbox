@@ -1,0 +1,4 @@
+<%= link_to 'Facebook', @user.facebook_url, :target => "_blank", :class => 'btn btn-default' if @user.facebook_url.present? %>
+<%= link_to 'Linkedin', @user.linkedin_url, :target => "_blank", :class => 'btn btn-default' if @user.linkedin_url.present? %>
+<%= link_to 'Twitter', @user.twitter_url, :target => "_blank", :class => 'btn btn-default' if @user.twitter_url.present? %>
+<%= link_to 'Website', @user.website_url, :target => "_blank", :class => 'btn btn-default' if @user.website_url.present? %>

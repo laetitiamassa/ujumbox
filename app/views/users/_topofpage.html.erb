@@ -1,0 +1,36 @@
+<div class="cover">
+	<%= image_tag @user.cover.url(:cover) %>
+</div>
+
+<div class="page-header">
+	<div class="row">
+		<div class="col-md-10 profilename">
+			<h2><%= @user.name %>
+			<span class="center-text">
+				<!-- social network presence -->
+				<%= render 'webpresence' %>
+
+				<% if current_user == @user %>
+					<%= link_to 'Editez votre profil', edit_user_path(current_user), :class => 'btn btn-primary' %>
+				<% else %>
+					<% if current_user.following?(@user) %>
+          	<%= link_to 'Ne plus suivre ce mandataire', unfollow_user_path(@user), :class => 'btn btn-default' if @user.is_politic %>
+      				<% else %>
+      					<%= link_to 'Suivre ce mandataire', follow_user_path(@user), :class => 'btn btn-success' if @user.is_politic %>
+      <% end %>
+				<% end %>
+			</span>
+
+			<% if @user.is_politic %>
+				<br><small><b><%= @user.title %></b> <% if @user.party_short.present? %>(<%= @user.party_short %>)<% end %></small>
+			<% else %>
+				<br><small><b><%= @user.profession %></b></small>
+			<% end %>
+			</h2>
+		</div>
+
+		<div class="col-md-2 text-right">
+			<%= image_tag @user.image.url(:thumb), :class => "img-thumbnail profilepic" %>
+		</div>
+	</div>
+</div>

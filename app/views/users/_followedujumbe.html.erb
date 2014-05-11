@@ -1,0 +1,36 @@
+<% if @user.following_ujumbes.any? %>
+	
+	<% @user.following_ujumbes.each do |ujumbe| %>
+		
+		<div class="col-sm-4 col-md-4">
+			
+			<div class="thumbnail text-center">
+							<p class="text-right">
+								<% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+      <% if ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+      <% if ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
+      <% if ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+      <% if ujumbe.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+      <% if ujumbe.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+      <% if ujumbe.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+      <% if ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+      <% if ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+      <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %>
+							</p>
+
+							<p><b><%= link_to truncate(ujumbe.title, :length => 25), ujumbe_path(ujumbe) %></b></p>
+
+							<% if current_user.following?(ujumbe) %>
+          			<%= link_to 'Ne plus suivre', unfollow_ujumbe_path(ujumbe), :class => 'btn btn-default btn-block' %>
+      				<% else %>
+      					<%= link_to 'Suivre', follow_ujumbe_path(ujumbe), :class => 'btn btn-success btn-block' %>
+      <% end %>
+							
+			</div>
+		</div>
+					
+	<% end %>
+
+<% else %>
+	<p class="lead text-center"><%= @user.name %> ne suit pas encore de proposition</p>
+<% end %>

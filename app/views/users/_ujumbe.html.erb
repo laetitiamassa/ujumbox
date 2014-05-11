@@ -1,0 +1,40 @@
+<% if @ujumbes.any? %>
+			<% @ujumbes.each do |ujumbe| %>
+				<div class="col-sm-6 col-md-6">
+			    <div class="thumbnail">
+			      <!-- <img data-src="holder.js/300x200" alt="..."> -->
+			      <div class="caption card">
+			        
+			        
+			<p class="text-right">
+				<% if ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+      <% if ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+      <% if ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
+      <% if ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+      <% if ujumbe.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+      <% if ujumbe.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+      <% if ujumbe.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+      <% if ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+      <% if ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+      <% if ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %>
+    	</p>
+
+    	<div class="title"><%= link_to truncate(ujumbe.title, :length => 20), ujumbe_path(ujumbe) %></div>
+
+			        <p class="text-center">
+			        	<% if current_user.following?(ujumbe) %>
+          			<%= link_to 'Ne plus suivre', unfollow_ujumbe_path(ujumbe), :class => 'btn btn-default' %>
+      				<% else %>
+      					<%= link_to 'Suivre', follow_ujumbe_path(ujumbe), :class => 'btn btn-success' %>
+      <% end %>
+    </p>
+			      </div>
+			    </div>
+			  </div>
+			<% end %>
+
+			<% else %>
+				<% unless @user == current_user %>
+				<p class="lead text-center"><%= @user.name %> n'a pas encore publié de proposition</p>
+				<% end %>
+			<% end %>

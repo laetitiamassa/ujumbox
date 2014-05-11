@@ -17,6 +17,12 @@ class UsersController < ApplicationController
     redirect_to :back
   end
 
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.stop_following(@user)
+    redirect_to :back
+  end
+
   def edit
     @user = current_user
     @action_areas = User.action_areas

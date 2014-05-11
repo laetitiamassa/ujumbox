@@ -1,0 +1,46 @@
+<!-- View if the profile is civil -->
+
+<div class="row">
+
+<!-- LEFT -->
+	<div class="col-md-4">
+		
+		<p class=" lead text-center"><b>Centres d'intérêt</b></p>
+
+		<div class="thumbnail">
+			<div class="caption">
+				
+				<% if @user.residency.present? %>
+					<div class="glyphicon glyphicon-map-marker pull-right"><%= @user.residency %></div>
+				<% end %>
+					<br>
+					<br>
+						
+				<p class="lead">
+					<%= render 'themesusers' %>
+				</p>
+
+			</div>
+		</div>
+
+	</div>
+
+<!-- RIGHT -->
+
+	<div class="col-md-8">
+		<div class="row">
+		<p class=" lead text-center"><b>Candidats et mandataires suivis</b></p>
+			
+			<%= render 'followedusers' %>
+		</div>
+
+		<div class="row">
+		<p class="lead text-center"><b>Propositions suivies</b></p>
+
+			<%= render 'followedujumbe' %>
+			</div>	
+		
+	</div>
+</div>
+
+

@@ -6,7 +6,11 @@
         <% if current_user == @ujumbe.user %>
           <%= link_to 'Editez votre proposition', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
         <% else %>
-          <%= link_to 'Suivre ce mandataire', follow_user_path(@ujumbe.user), :class => 'btn btn-success' if @ujumbe.user.is_politic %>
+          <% if current_user.following?(@ujumbe) %>
+                <%= link_to 'Ne plus suivre cette proposition', unfollow_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
+              <% else %>
+                <%= link_to 'Suivre cette proposition', follow_ujumbe_path(@ujumbe), :class => 'btn btn-success' %>
+      <% end %>
         <% end %>
       </span></h1>
     </div>
@@ -15,7 +19,7 @@
     </div>
   </div>
 </div>
-<div class="text-right">
+<div class="text-right lead">
       <% if @ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
       <% if @ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
       <% if @ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
