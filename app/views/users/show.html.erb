@@ -118,8 +118,8 @@
 
 		<div class="col-md-8">
 			<p class="lead text-center"><b>Candidats et mandataires suivis</b></p>
-				<% if @user.all_following.any? %>
-					<% @user.all_following.each do |followed| %>
+				<% if @user.follows_by_type('User').any? %>
+					<% @user.follows_by_type('User').each do |followed| %>
 					<div class="col-sm-3 col-md-3">
 						<div class="thumbnail">
 							<%= link_to image_tag(followed.image.url(:medium), :class => "img-thumbnail profilepic"), user_path(followed) %>
@@ -131,6 +131,21 @@
 					<% end %>
 				<% else %>
 					<p class="lead text-center"><%= @user.name %> ne suit pas encore de candidat ou mandataire</p>
+				<% end %>
+
+				<p class="lead text-center"><b>Propositions suivies</b></p>
+				<% if @user.follows_by_type('Ujumbe').any? %>
+					<% @user.follows_by_type('Ujumbe').each do |ujumbe| %>
+					<div class="col-sm-3 col-md-3">
+						<div class="thumbnail">
+							ujumbe test
+						</div>
+					</div>
+
+						
+					<% end %>
+				<% else %>
+					<p class="lead text-center"><%= @user.name %> ne suit pas encore de proposition</p>
 				<% end %>
 			</div>
 
@@ -167,8 +182,8 @@
 	</div>
 
 	<div class="col-md-8">
-		<p class=" lead text-center"><b>Candidats et mandataires suivis</b></p>
-				<% if @user.all_following.any? %>
+		<p class=" lead text-center"><b>Candidats, mandataires et propositions suivis</b></p>
+				<% if @user.follows_by_type('User').any? %>
 				<% @user.follows_by_type('User').each do |followed| %>
 				<div class="col-sm-3 col-md-3">
 					<div class="thumbnail">
@@ -182,6 +197,21 @@
 				
 				<% else %>
 				<p class="lead text-center"><%= @user.name %> ne suit pas encore de candidat ou mandataire</p>
+				<% end %>
+
+		<p class="lead text-center"><b>Propositions suivies</b></p>
+				<% if @user.follows_by_type('Ujumbe').any? %>
+					<% @user.follows_by_type('Ujumbe').each do |ujumbe| %>
+					<div class="col-sm-3 col-md-3">
+						<div class="thumbnail">
+							ujumbe test
+						</div>
+					</div>
+
+						
+					<% end %>
+				<% else %>
+					<p class="lead text-center"><%= @user.name %> ne suit pas encore de proposition</p>
 				<% end %>
 		
 	</div>
