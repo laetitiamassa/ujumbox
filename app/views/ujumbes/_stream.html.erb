@@ -38,7 +38,7 @@
         <div class="col-sm-6 col-md-9">
         <%= link_to "Voir", ujumbe_path(ujumbe), :class => "btn btn-primary" %>
         <% if current_user.following?(ujumbe) %>
-          <%= link_to 'lacher', unfollow_ujumbe_path(ujumbe), :class => 'btn btn-success' %>
+          <%= link_to 'Ne plus suivre', unfollow_ujumbe_path(ujumbe), :class => 'btn btn-danger' %>
       <% else %>
       <%= link_to 'Suivre', follow_ujumbe_path(ujumbe), :class => 'btn btn-success' %>
     
