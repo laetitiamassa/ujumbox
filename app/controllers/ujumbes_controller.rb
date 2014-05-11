@@ -1,5 +1,5 @@
 class UjumbesController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_ujumbe, only: [:show, :edit, :update, :destroy]
   before_filter :correct_user, :only => [:edit, :update]
 

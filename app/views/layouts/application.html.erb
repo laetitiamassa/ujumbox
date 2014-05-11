@@ -5,6 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "ujumbox" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "ujumbox" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
@@ -27,9 +28,9 @@
         </div>
           <%= yield %>
 
-          <footer>
+          <!-- <footer>
             <%= render 'layouts/footer' %>
-          </footer>
+          </footer> -->
             
         <% end %>
  

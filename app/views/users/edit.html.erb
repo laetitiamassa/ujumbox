@@ -14,6 +14,10 @@
 
     <!-- FOR DEV PURPOSE <%= f.check_box :is_politic %> politicien </li> -->
 
+    <div class="form-group">
+      <%= f.label :name, "Votre nom" %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
 
   	<div class="form-group">
 	    <%= f.label :image, "Votre photo de profil" %>
@@ -27,31 +31,31 @@
 
 	  <div class="form-group">
       <%= f.label :residency, "Votre commune/région de résidence" %>
-      <%= f.text_field :residency, :autofocus => true, class: 'form-control' %>
+      <%= f.text_field :residency, class: 'form-control' %>
     </div>
 
     <% if current_user.is_politic %>
     	<div class="form-group">
         <%= f.label :party, "Votre parti" %>
-        <%= f.text_field :party, :autofocus => true, class: 'form-control' %>
+        <%= f.text_field :party, class: 'form-control' %>
       </div>
 
       <div class="form-group">
         <%= f.label :party_short, "Votre parti, en abrégé" %>
-        <%= f.text_field :party_short, :autofocus => true, class: 'form-control' %>
+        <%= f.text_field :party_short, class: 'form-control' %>
       </div>
     <% end %>
 
     <% if current_user.is_politic %>
       <div class="form-group">
         <%= f.label :title, "Votre titre ou votre candidature" %>
-        <%= f.text_field :title, :autofocus => true, class: 'form-control' %>
+        <%= f.text_field :title, class: 'form-control' %>
       </div>
     <% end %>
 
     <div class="form-group">
       <%= f.label :profession, "Votre activité professionnelle principale" %>
-      <%= f.text_field :profession, :autofocus => true, class: 'form-control' %>
+      <%= f.text_field :profession, class: 'form-control' %>
     </div>
 
     <% if current_user.is_politic %>

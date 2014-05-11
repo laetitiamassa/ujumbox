@@ -115,18 +115,20 @@ section {
 }
 
 .baseline {
-  font-size: 7em;
+  font-size: 4em;
   font-family: 'Pompiere', cursive;
-  line-height: 100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  line-height: 90px;
+  padding-left: 70px;
+  padding-bottom: 70px;
 } 
 
 .namefront {
-  font-size: 14em;
+  font-size: 17em;
   font-family: 'Pompiere', cursive;
   line-height: 100px;
   padding-top: 100px;
+  padding-bottom: 10px;
+
 }  
 
 .card {
@@ -142,3 +144,27 @@ section {
   font-size: 1.5em;
 }
 
+.altbg-white {
+  background-color: white;
+  padding-bottom: 30px;
+}
+
+.altbg-signup {
+  background-color: #34495e;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-top: 30px;
+}
+
+.altbg-politics {
+  background-color: #2980b9;
+  padding-bottom: 30px;
+}
+
+.altbg-end {
+  padding-top: 30px;
+}
+
+.big {
+  font-size: 3em;
+}
