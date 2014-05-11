@@ -172,8 +172,8 @@
 				<% @user.follows_by_type('User').each do |followed| %>
 				<div class="col-sm-3 col-md-3">
 					<div class="thumbnail">
-						<%= link_to image_tag(followed.image.url(:medium), :class => "img-thumbnail profilepic"), user_path(followed) %>
-						<div class="text-center"><%= followed.name %></div>
+						<%= link_to image_tag(followed.image.url(:medium), :class => "img-thumbnail profilepic"), ujumbe_path(followed) %>
+						<div class="text-center"><%= followed.title %></div>
 					</div>
 				</div>
 

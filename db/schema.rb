@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505095033) do
+ActiveRecord::Schema.define(version: 20140511090352) do
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140505095033) do
     t.boolean  "theme_security"
     t.boolean  "theme_scientific"
     t.boolean  "theme_foreign"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|

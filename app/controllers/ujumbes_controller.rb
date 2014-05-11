@@ -97,7 +97,8 @@ class UjumbesController < ApplicationController
     def ujumbe_params
       params.require(:ujumbe).permit(:title, :theme, :date, :description, :link, :type, :private,
                                      :what, :why, :how, :budget, :funding,
-                                     :theme_ressources, :theme_education, :theme_housing, :theme_environnement, :theme_culture, :theme_economy, :theme_social, :theme_security, :theme_scientific, :theme_foreign)
+                                     :theme_ressources, :theme_education, :theme_housing, :theme_environnement, :theme_culture, :theme_economy, :theme_social, :theme_security, :theme_scientific, :theme_foreign,
+                                     :image)
     end
 end
 
