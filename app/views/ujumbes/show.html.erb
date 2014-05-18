@@ -34,7 +34,7 @@
 
 <div class="col-md-10 col-md-offset-1">
 
-<% if @ujumbe.what %>
+<% if @ujumbe.what.present? %>
   <p class="lead">Ma proposition dans le détail :</p>
 <div class="thumbnail">
     <div class="caption">
@@ -43,7 +43,7 @@
 </div>
 <% end %>
 
-<% if @ujumbe.why %>
+<% if @ujumbe.why.present? %>
 <p class="lead">Pourquoi cette proposition :</p>
 <div class="thumbnail">
     <div class="caption">
@@ -52,7 +52,7 @@
 </div>
 <% end %>
 
-<% if @ujumbe.how %>
+<% if @ujumbe.how.present? %>
 <p class="lead">La manière dont je compte mettre en oeuvre cette proposition :</p>
 <div class="thumbnail">
     <div class="caption">
@@ -62,7 +62,7 @@
 <% end %>
 
 
-<% if @ujumbe.budget %>
+<% if @ujumbe.budget.present? %>
 <p class="lead">Le budget nécessaire à la réalisation de cette proposition :</p>
 <div class="thumbnail">
     <div class="caption">

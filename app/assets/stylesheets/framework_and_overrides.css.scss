@@ -115,10 +115,10 @@ section {
 }
 
 .baseline {
-  font-size: 4em;
+  font-size: 3.7em;
   font-family: 'Pompiere', cursive;
   line-height: 90px;
-  padding-left: 70px;
+  padding-left: 100px;
   padding-bottom: 70px;
 } 
 
@@ -167,4 +167,38 @@ section {
 
 .big {
   font-size: 3em;
+}
+
+.bigger {
+  font-size: 1.7em;
+}
+
+.proposition {
+  margin-top: 200px;
+  margin-bottom: 100px;
+  font-family: 'Pompiere', cursive;
+  font-size: 14em;
+  color: #34495e;
+}
+
+.declaration {
+  margin-top: 150px;
+  font-size: 4.2em;
+}
+
+.programme {
+  margin-top: 100px;
+  font-size: 3.5em;
+  margin-bottom: 70px;
+}
+
+.slogan {
+  font-size: 5em;
+  color: #34495e;
+  margin-bottom: 100px;
+  margin-right: 150px;
+}
+
+.blujumbox {
+  color: #34495e;
 }
