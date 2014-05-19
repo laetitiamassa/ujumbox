@@ -1,3 +1,8 @@
+<p class="lead text-center">
+	<i class="fa fa-suitcase fa-lg blujumbox fa-border"></i>
+	<%= render 'themesusers' %>
+		</p>
+
 <div class="row">
 		
 <!-- LEFT -->
@@ -6,9 +11,7 @@
 
 			<div class="thumbnail">
 				<div class="caption">
-					<% if @user.residency.present? %>
-						<div class="glyphicon glyphicon-map-marker pull-right"><%= @user.residency %></div>
-					<% end %>
+					
 					<br>
 					<br>
 		
@@ -24,11 +27,14 @@
 					<p><%= simple_format(@user.achievements) %></p>
 					<br>
 		
-					<p class="lead">Mes domaines d'action</p>
-						<p class="lead">
-						<%= render 'themesusers' %>
-					</p>
 				</div>
+			</div>
+
+			<!-- FOLLOWED USERS -->
+<div class="row">
+				<p class="lead text-center"><b>Candidats et mandataires suivis</b></p>
+				
+				<%= render 'followedusers' %>
 			</div>
 		</div>
 
@@ -39,28 +45,27 @@
 			<p class="lead text-center"><b>Mes propositions</b></p>
 			
 			<% if @user == current_user %>
+			<div class="col-sm-6 col-md-6">
 				<%= render 'shortform' %>
+			</div>
 			<% end %>
 
-			<%= render 'ujumbe' %>
+			<% if @ujumbes.any? %>
+				<%= render 'ujumbe' %>
+				<% else %>
+					<% unless @user == current_user %>
+						<p class="lead text-center"><%= @user.name %> n'a pas encore publié de proposition</p>
+					<% end %>
+				<% end %>
 
 		</div>
 	
 
-			
-
-
-<!-- FOLLOWED USERS -->
-<div class="row">
-				<p class="lead text-center"><b>Candidats et mandataires suivis</b></p>
-				
-				<%= render 'followedusers' %>
-			</div>
 
 	<!-- FOLLOWED UJUMBES -->
 	<div class="row">
 	
-				<p class="lead text-center"><b>Propositions suivies</b></p>
+				<p class="lead text-center"><b>Propositions et suggestions suivies</b></p>
 		
 				<%= render 'followedujumbe' %>
 			</div>

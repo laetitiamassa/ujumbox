@@ -1,22 +1,36 @@
-<div class="col-sm-6 col-md-4">
+
     <div class="thumbnail alert-info">
       <!-- <img data-src="holder.js/300x200" alt="..."> -->
       <div class="caption alert-info">
 
-        <p class="lead"><%= link_to 'Une nouvelle solution ?', new_ujumbe_path %></p>
+        <p class="lead">
+          <% if current_user.is_politic %>
+            <%= link_to 'Une nouvelle solution ?', new_ujumbe_path %>
+          <% else %>
+            <%= link_to 'Une préoccupation ?', new_ujumbe_path %>
+          <% end %>
+        </p>
 
         <%= simple_form_for(@ujumbe) do |f| %>
         <%= f.error_notification %>
           <div class="form-group">
+            <% if current_user.is_politic %>
               <%= f.text_field :title, :placeholder => "Faites une nouvelle proposition", class: 'form-control input-lg' %>
+            <% else %>
+              <%= f.text_field :title, :placeholder => "Faites une nouvelle suggestion", class: 'form-control input-lg' %>
+            <% end %>
           </div>
 
 
           <div class="form-actions">
+            <% if current_user.is_politic %>
             <%= f.submit "Publiez votre proposition", :class => "btn btn-primary btn-block" %>
+            <% else %>
+            <%= f.submit "Publiez votre suggestion", :class => "btn btn-primary btn-block" %>
+            <% end %>
           </div>
         <% end %>
 
       </div>
     </div>
-  </div>
+  

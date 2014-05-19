@@ -2,9 +2,9 @@
 			
 					<% @user.following_users.each do |user| %>
 					
-						<div class="col-sm-3 col-md-3">
+						<div class="col-sm-3 col-md-6">
 							<div class="thumbnail">
-								<%= link_to image_tag(user.image.url(:medium)), :class => "img-thumbnail profilepic" %>
+								<%= link_to image_tag(user.image.url(:medium), :class => "img-thumbnail profilepic"), user_path(user) %>
 								<div class="text-center"><b><%= link_to user.name, user_path(user) %></b></div>
 
 								<div class="text-center">

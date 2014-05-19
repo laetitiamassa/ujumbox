@@ -1,16 +1,33 @@
 <div class="page-header">
   <div class="row">
     <div class="col-md-10">
-      <h1><%= @ujumbe.title %>
+      <h1>
+        <% if @ujumbe.politic %>
+      <i class="fa fa-microphone blujumbox fa-lg fa-border"></i>
+      <% else %>
+      <i class="fa fa-bullhorn blujumbox fa-lg fa-border"></i>
+      <% end %>
+        <%= @ujumbe.title %>
       <span class="center-text">
         <% if current_user == @ujumbe.user %>
-          <%= link_to 'Editez votre proposition', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
+          <% if @ujumbe.politic %>
+            <%= link_to 'Editez votre proposition', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
+          <% else %>
+            <%= link_to 'Editez votre suggestion', edit_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
+          <% end %>
+
         <% else %>
+
           <% if current_user.following?(@ujumbe) %>
-                <%= link_to 'Ne plus suivre cette proposition', unfollow_ujumbe_path(@ujumbe), :class => 'btn btn-default' %>
-              <% else %>
-                <%= link_to 'Suivre cette proposition', follow_ujumbe_path(@ujumbe), :class => 'btn btn-success' %>
-      <% end %>
+            <%= link_to unfollow_ujumbe_path(@ujumbe) do %>
+              <%= content_tag(:i, " Ne plus suivre" ,:class=> 'fa fa-thumbs-down btn btn-default btn-lg') -%>
+            <% end %>
+          <% else %>
+            <%= link_to follow_ujumbe_path(@ujumbe) do %>
+              <%= content_tag(:i, " Suivre" ,:class=> 'fa fa-thumbs-up btn btn-success btn-lg') -%>
+            <% end %>
+          <% end %>
+
         <% end %>
       </span></h1>
     </div>
@@ -35,7 +52,13 @@
 <div class="col-md-10 col-md-offset-1">
 
 <% if @ujumbe.what.present? %>
-  <p class="lead">Ma proposition dans le détail :</p>
+  <p class="lead">
+    <% if @ujumbe.politic %>
+    Ma proposition dans le détail :
+    <% else %>
+    Ma suggestion dans le détail :
+    <% end %>
+  </p>
 <div class="thumbnail">
     <div class="caption">
 <%= simple_format(@ujumbe.what) %>
@@ -44,7 +67,13 @@
 <% end %>
 
 <% if @ujumbe.why.present? %>
-<p class="lead">Pourquoi cette proposition :</p>
+<p class="lead">
+  <% if @ujumbe.politic %>
+  Pourquoi cette proposition :
+  <% else %>
+  Pourquoi cette suggestion :
+  <% end %>
+</p>
 <div class="thumbnail">
     <div class="caption">
 <%= simple_format(@ujumbe.why) %>
@@ -53,7 +82,13 @@
 <% end %>
 
 <% if @ujumbe.how.present? %>
-<p class="lead">La manière dont je compte mettre en oeuvre cette proposition :</p>
+<p class="lead">
+  <% if @ujumbe.politic %>
+  La manière dont je compte mettre en oeuvre cette proposition :
+  <% else %>
+  La manière dont cette suggestion pourrait être mise en oeuvre :
+  <% end %>
+</p>
 <div class="thumbnail">
     <div class="caption">
 <%= simple_format(@ujumbe.how) %>
@@ -63,7 +98,14 @@
 
 
 <% if @ujumbe.budget.present? %>
-<p class="lead">Le budget nécessaire à la réalisation de cette proposition :</p>
+<p class="lead">
+  <% if @ujumbe.politic %>
+  Le budget nécessaire à la réalisation de cette proposition :
+  <% else %>
+  Le budget qui me paraît nécessaire à la réalisation de cette proposition :
+  <% end %>
+</p>
+
 <div class="thumbnail">
     <div class="caption">
       <p><b>Budget</b></p>

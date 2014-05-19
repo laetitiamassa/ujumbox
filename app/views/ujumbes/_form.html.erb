@@ -4,17 +4,29 @@
 
 
   <div class="form-group">
+    <% if current_user.is_politic %>
       <%= f.label :title, "Votre proposition" %>
+    <% else %>
+      <%= f.label :title, "Votre suggestion" %>
+    <% end %>
       <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <% if current_user.is_politic %>
       <%= f.label :what, "Décrivez votre proposition" %>
+    <% else %>
+      <%= f.label :what, "Décrivez votre suggestion" %>
+    <% end %>
       <%= f.text_area :what, class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <% if current_user.is_politic %>
     <%= f.label :action_areas, "Indiquez le/les domaines impactés par votre proposition" %>
+    <% else %>
+    <%= f.label :action_areas, "Indiquez le/les domaines impactés par votre suggestion" %>
+    <% end %>
     <ul class="list-group">
       <li class="list-group-item"><%= f.check_box :theme_education %> éducation, jeunesse</li>
       <li class="list-group-item"><%= f.check_box :theme_economy %> économie, emploi</li>
@@ -34,22 +46,39 @@
   </div>
 
   <div class="form-group">
+    <% if current_user.is_politic %>
       <%= f.label :how, "Comment allez-vous la mettre en oeuvre ?" %>
+      <% else %>
+      <%= f.label :how, "Avez-vous une suggestion de mise en oeuvre ?" %>
+      <% end %>
       <%= f.text_area :how, class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <% if current_user.is_politic %>
       <%= f.label :budget, "Quel est le budget nécessaire pour la mettre en oeuvre ?" %>
+      <% else %>
+      <%= f.label :budget, "Avez-vous une idée du budget nécessaire pour la mettre en oeuvre ?" %>
+      <% end %>
+
       <%= f.text_area :budget, class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <% if current_user.is_politic %>
       <%= f.label :funding, "D'où proviendront les fonds pour la mettre en oeuvre ?" %>
+      <% else %>
+      <%= f.label :funding, "Avez-vous une idée d'où pourraient provenir ces fonds ?" %>
+      <% end %>
       <%= f.text_area :funding, class: 'form-control' %>
   </div>
 
   <div class="form-actions">
+    <% if current_user.is_politic %>
     <%= f.submit "Publiez votre proposition", :class => "btn btn-primary" %>
+    <% else %>
+    <%= f.submit "Publiez votre suggestion", :class => "btn btn-primary" %>
+    <% end %>
   </div>
 <% end %>
 

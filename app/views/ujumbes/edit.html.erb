@@ -1,6 +1,13 @@
 <div class="col-md-6 col-md-offset-3">
 <div class="page-header">
-  <h1>Complétez votre proposition</h1>
+
+  <h1>
+  	<% if current_user.is_politic %>
+  	Complétez votre proposition
+  	<% else %>
+  	Complétez votre suggestion
+  	<% end %>
+  </h1>
 </div>
 <%= render 'form' %>
 

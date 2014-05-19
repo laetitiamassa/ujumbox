@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
 	
   
-  <li><%= link_to 'Propositions', ujumbes_path %></li>
+  <li><%= link_to 'Accueil', ujumbes_path %></li>
   <% unless current_user.is_politic %><li><%= link_to 'Vous êtes candidat/mandataire ?', "mailto:contact@ujumbox.com" %></li><% end %>
   <li><%= link_to 'A propos', about_path %></li>
 

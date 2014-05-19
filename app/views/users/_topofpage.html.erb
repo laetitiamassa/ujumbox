@@ -25,6 +25,10 @@
 				<br><small><b><%= @user.title %></b> <% if @user.party_short.present? %>(<%= @user.party_short %>)<% end %></small>
 			<% else %>
 				<br><small><b><%= @user.profession %></b></small>
+						<% end %>
+				<% if @user.residency.present? %>
+					<small><div class="glyphicon glyphicon-map-marker pull-right"><%= @user.residency %></div></small>
+		
 			<% end %>
 			</h2>
 		</div>

@@ -9,4 +9,12 @@ class Ujumbe < ActiveRecord::Base
 	
 	validates :title, presence: true
 
+	def politic
+		user.is_politic?
+	end
+
+	def civil
+		!politic
+	end
+
 end
