@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511232115) do
+ActiveRecord::Schema.define(version: 20140520174951) do
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20140511232115) do
     t.text     "what"
     t.text     "why"
     t.text     "how"
-    t.string   "budget"
-    t.string   "funding"
+    t.text     "budget",              limit: 255
+    t.text     "funding",             limit: 255
     t.boolean  "theme_ressources"
     t.boolean  "theme_education"
     t.boolean  "theme_housing"
