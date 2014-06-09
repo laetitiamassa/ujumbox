@@ -14,6 +14,7 @@ gem 'bootstrap-multiselect-rails'
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk', '~> 1.20.0'
 gem "acts_as_follower"
+gem 'shareable'
 
 group :development, :test do
   gem 'better_errors'

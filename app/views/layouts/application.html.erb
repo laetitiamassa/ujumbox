@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
   <head>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "ujumbox - boîte à messages politique" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Parce que la démocratie ne se limite pas aux périodes électorales, ujumbox permet aux citoyens et aux politiques d'ouvrir un dialogue permanent via des suggestions et des propositions concrètes, sur base de leurs centres d'intérêts" %>">
@@ -30,9 +31,12 @@
 <meta name="twitter:description" content="" />
 <meta name="twitter:image" content="" />
 
+
+
   </head>
   <body>
     <header>
+
       <%= render 'layouts/navigation' %>
     </header>
  
@@ -41,6 +45,7 @@
          <%= render 'layouts/messages' %>
        </div>
           <div class="container">
+            <%= render_shareable :static_link => true %>
             <%= yield %>
           </div>
         
