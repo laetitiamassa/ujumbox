@@ -34,7 +34,8 @@
  
 
   <p class="text-center"><%= link_to "Voir le détail", user_registration_path, :class => "btn btn-info btn-lg" %></p>
-  <div class="text-center"><%= facebook_button :title => @ujumbe.title %> <!-- <%= twitter_button :title => @ujumbe.title %> --></div>
+  <div class="text-center"><%= twitter_button :title => @ujumbe.title+" "+"#ujumbox #digitaldemocracy" %> </div>
+  <!-- <%= social_share_button_tag(@ujumbe.title, url: ujumbe_url(@ujumbe)) %> -->
 
 
 </div>
@@ -47,7 +48,7 @@
       
 
       <p class="lead"><%= @ujumbe.user.name %> utilise 
-        <span class="big ujumbox blujumbox">ujumbox</span>, 
+        <span class="biggy ujumbox blujumbox">ujumbox</span>, 
         <br>une boîte à messages politique permettant de pratiquer la démocratie au quotidien</p>
         
 
