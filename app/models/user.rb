@@ -34,4 +34,5 @@ class User < ActiveRecord::Base
       [I18n.t("action_areas.#{action_area}"), action_area]
     end
   end
+
 end

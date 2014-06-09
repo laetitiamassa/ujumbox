@@ -1,0 +1,60 @@
+
+<div class="visitorcontent">
+  <div class="col-md-3 visitorpics">
+  
+</div>
+  <div class="panel panel-default col-md-4">
+
+     <div class="text-right">
+      <% if @ujumbe.theme_education %><span class="label label-success">éducation, jeunesse</span><% end %>
+      <% if @ujumbe.theme_economy %><span class="label label-success">économie, emploi</span><% end %>
+      <% if @ujumbe.theme_housing %><span class="label label-success">logement</span><% end %>
+      <% if @ujumbe.theme_social %><span class="label label-success"> sécurité sociale, fiscalité</span><% end %>
+      <% if @ujumbe.theme_culture %><span class="label label-success"> culture, sport</span><% end %>
+      <% if @ujumbe.theme_environnement %><span class="label label-success"> environnement</span><% end %>
+      <% if @ujumbe.theme_ressources %><span class="label label-success"> eau, énergie, agriculture</span><% end %>
+      <% if @ujumbe.theme_security %><span class="label label-success"> police, armée, justice</span><% end %>
+      <% if @ujumbe.theme_scientific %><span class="label label-success"> recherche scientifique</span><% end %>
+      <% if @ujumbe.theme_foreign %><span class="label label-success"> affaires étrangères</span><% end %>
+ 
+
+
+   </div>
+ 
+    
+  <h1>
+    <% if @ujumbe.politic %>
+      <i class="fa fa-microphone blujumbox fa-lg fa-border pull-left"></i>
+      <% else %>
+      <i class="fa fa-bullhorn blujumbox fa-lg fa-border pull-left"></i>
+      <% end %>
+      <%= @ujumbe.title %>
+    </h1>
+  
+ 
+
+  <p class="text-center"><%= link_to "Voir le détail", user_registration_path, :class => "btn btn-info btn-lg" %></p>
+
+</div>
+
+    
+
+
+
+<div class="col-md-3 text-center">
+      
+<%= link_to image_tag(@ujumbe.user.image.url(:thumb), :class => "img-circle"), user_path(@ujumbe.user) %>
+      <p class="lead"><%= @ujumbe.user.name %> utilise 
+        <span class="big ujumbox blujumbox">ujumbox</span>, 
+        <br>une boîte à messages politique permettant de pratiquer la démocratie au quotidien</p>
+        
+
+      <p class="text-center"><%= link_to "S'inscrire sur ujumbox", new_user_registration_path, :class => "btn btn-primary btn-lg" %></p>
+
+      <p><u><%= link_to "En savoir plus sur ujumbox", root_path %></u></p>
+        
+    </div>
+
+</div>
+
+

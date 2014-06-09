@@ -1,12 +1,15 @@
 <div class="col-md-6 col-md-offset-3">
 <div class="page-header">
-  <h1>Nouvelle proposition</h1>
-</div>
-<% if current_user.is_politic %>
-<%= render 'form' %>
-<% else %>
 
-<p class="lead text-center">Vous devez être un utilisateur politique pour pouvoir publier vos propositions</p>
-<%= link_to 'Devenir utilisateur politique', "mailto:contact@ujumbox.com", :class => "btn btn-success btn-block btn-lg" %>
-<% end %>
+  <h1>
+  	<% if current_user.is_politic %>
+  	Nouvelle proposition
+  	<% else %>
+  	Nouvelle suggestion
+  	<% end %>	
+  </h1>
+</div>
+
+<%= render 'form' %>
+
 </div>
