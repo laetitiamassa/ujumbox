@@ -1,3 +1,14 @@
+$brand-primary: #34495e;
+$brand-info: #C0BFA9;
+$brand-warning: #f1c40f;
+$navbar-default-brand-color: #34495e;
+$navbar-default-link-color: #34495e;
+$navbar-height:             65px;
+
+
+
+
+
 // Temporary workaround for Rails 4.1.2 pending releaase of bootstrap-sass 3.1.2
 //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
 //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
@@ -128,7 +139,6 @@ section {
   line-height: 100px;
   padding-top: 100px;
   padding-bottom: 10px;
-
 }  
 
 .card {
