@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :ujumbes
+  has_many :acts, through: :ujumbes
 
   has_attached_file :image, 
                     :styles => { :medium => "400x400#", :thumb => "100x100#", :mini => "50x50#", :large => "600x600#" }, 

@@ -1,4 +1,5 @@
 Ujumbox::Application.routes.draw do
+  resources :acts
   resources :ujumbes
 
   root :to => "ujumbes#index"
@@ -18,7 +19,13 @@ Ujumbox::Application.routes.draw do
     end
   end
 
+  resources :ujumbes do
+    resources :acts
+  end
+
   get "about" => "about#show"
+  get "politics" => "home#politics"
+  get "citizen" => "home#citizen"
   get "rosemefalessi" => "users#show", defaults: { id: "10" }
 
 end

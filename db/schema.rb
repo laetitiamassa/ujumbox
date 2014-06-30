@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520174951) do
+ActiveRecord::Schema.define(version: 20140610101556) do
+
+  create_table "acts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "date"
+    t.integer  "user_id"
+    t.integer  "ujumbe_id"
+    t.string   "subject"
+    t.text     "details"
+  end
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false

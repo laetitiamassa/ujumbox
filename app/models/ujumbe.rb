@@ -1,5 +1,8 @@
 class Ujumbe < ActiveRecord::Base
 	belongs_to :user
+	has_many :acts, :dependent => :destroy
+	accepts_nested_attributes_for :acts
+	 
 	acts_as_followable
 
 	has_attached_file :image, 

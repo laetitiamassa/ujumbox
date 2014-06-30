@@ -121,6 +121,18 @@ section {
   padding-top: 10px;
 }
 
+.homebg {
+  margin-top: -220px;
+  padding-top: 290px;
+  color: #f8f8f8; 
+  background-image: url(image-path('background_cover.jpg'));
+  height: 900px;
+  background-align: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+
 .baseline {
   font-size: 3.7em;
   font-family: 'Pompiere', cursive;
@@ -128,6 +140,15 @@ section {
   padding-left: 100px;
   padding-bottom: 70px;
 } 
+
+.valueprop {
+  font-size: 3.5em;
+  line-height: 70px;
+}
+
+.morefront {
+  padding-top: 450px;
+}
 
 .namefront {
   font-size: 17em;
@@ -160,7 +181,7 @@ section {
   background-color: #34495e;
   padding-bottom: 20px;
   padding-top: 20px;
-  margin-top: 30px;
+  
 }
 
 .altbg-politics {
